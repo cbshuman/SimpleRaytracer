@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Raytracer.Model;
+using Raytracer.FileWriter;
+using System;
 
 namespace Raytracer
     {
@@ -6,7 +8,10 @@ namespace Raytracer
         {
         static void Main(string[] args)
             {
-            Console.WriteLine("Hello World!");
+            Scene scene = new Scene(65f,500,1000);
+            scene.Render();
+
+            PPMWriter.WriteBitmapToPPM("./save.ppm",scene.GetScreenContents());
             }
         }
     }

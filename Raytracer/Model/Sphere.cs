@@ -7,8 +7,17 @@ namespace Raytracer.Model
     /*
      * Class to define spheres to be rendered
     */
-    public class Sphere
+    public class Sphere : RenderObject
         {
-        Vector3 position;
+        public Vector3 position;
+        public float radius;
+        public Color color;
+
+        public Sphere(Vector3 position, float radius, Color color)
+            {
+            this.position = position;
+            this.radius = radius;
+            this.color = color;
+            }
         }
     }
