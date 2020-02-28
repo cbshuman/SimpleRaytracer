@@ -23,9 +23,9 @@ namespace Raytracer.FileWriter
                 for (int x = 0; x < width; x++)
                     {
                     Color color = bitmap[x][y];
-                    writer.Write(color.r + " ");
-                    writer.Write(color.g + " ");
-                    writer.Write(color.b + "\n");
+                    writer.Write(color.R + " ");
+                    writer.Write(color.G + " ");
+                    writer.Write(color.B + "\n");
                     }
                 }
 

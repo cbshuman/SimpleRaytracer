@@ -8,7 +8,7 @@ namespace Raytracer
         {
         static void Main(string[] args)
             {
-            Scene scene = new Scene(65f,500,1000);
+            Scene scene = new Scene(65f,500,1000, new Color(25,25,80));
             scene.Render();
 
             PPMWriter.WriteBitmapToPPM("./save.ppm",scene.GetScreenContents());

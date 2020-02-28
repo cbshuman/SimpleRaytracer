@@ -14,5 +14,12 @@ namespace Raytracer.Model
             this.origin = origin;
             this.direction = direction;
             }
+
+        internal Color GetCast()
+            {
+            Color returnColor = new Color();
+
+            return (returnColor);
+            }
         }
     }
