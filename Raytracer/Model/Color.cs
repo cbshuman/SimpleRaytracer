@@ -10,6 +10,7 @@ namespace Raytracer.Model
         private int red;
         private int green;
         private int blue;
+        private int a;
 
         public int R
             {
@@ -67,6 +68,26 @@ namespace Raytracer.Model
                 else
                     {
                     blue = value;
+                    }
+                }
+            }
+
+        public int A
+            {
+            get => a;
+            set
+                {
+                if (value > 225)
+                    {
+                    a = 225;
+                    }
+                else if (value < 0)
+                    {
+                    a = 0;
+                    }
+                else
+                    {
+                    a = value;
                     }
                 }
             }

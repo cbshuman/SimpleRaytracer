@@ -6,6 +6,8 @@ namespace Raytracer.Model
     {
     public abstract class RenderObject
         {
-        public abstract void CheckCollision(Ray inputRay);
+        public abstract bool CheckCollision(Ray inputRay);
+        public abstract void HandleCollision(Ray inputRay);
+        public abstract Color GetColor(Ray ray);
         }
     }

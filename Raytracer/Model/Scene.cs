@@ -31,6 +31,8 @@ namespace Raytracer.Model
                 screen[i] = new Color[screenHeight];
                 }
 
+            cameraPosition = Vector3.zero;
+
             objects = new List<RenderObject>();
             }
         
@@ -53,10 +55,12 @@ namespace Raytracer.Model
 
         private Ray CreatePrimeRay(float x, float y)
             {
-            float xDir = ((x + .5f) / screenWidth * 2) - 1;
-            float yDir = ((y + .5f) / screenHeight * 2) - 1;
+            float aspect_ratio = screenWidth / screenHeight;
 
-            Ray primeRay = new Ray(Vector3.zero,new Vector3(xDir,yDir,0));
+            float xDir = (((x + .5f) / screenWidth * 2) - 1)*aspect_ratio;
+            float yDir = 1 - ((y + .5f) / screenHeight * 2);
+
+            Ray primeRay = new Ray(cameraPosition, new Vector3(xDir,yDir,-1));
 
             return (primeRay);
             }

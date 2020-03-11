@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Raytracer.Model
     {
@@ -34,6 +32,35 @@ namespace Raytracer.Model
             float factor = (float)Math.Sqrt((vector.x * vector.x) + (vector.y * vector.y) + (vector.z * vector.z));
             factor = 1f / factor;
             return new Vector3(vector.x * factor, vector.y * factor, vector.z * factor);
+            }
+
+        public static float Dot(Vector3 value1, Vector3 value2)
+            {
+            return value1.x * value2.x + value1.y * value2.y + value1.z * value2.z;
+            }
+
+        public float Length()
+            {
+            return (float)Math.Sqrt((x * x) + (y * y) + (z * z));
+            }
+
+        public Vector3 GetNormalized()
+            {
+            float factor = (float)Math.Sqrt((x * x) + (y * y) + (z * z));
+            factor = 1f / factor;
+            float normalX = x*factor;
+            float normalY = y*factor;
+            float normalZ = z*factor;
+
+            return (new Vector3(normalX, normalY, normalZ));
+            }
+
+        public static Vector3 operator -(Vector3 value1, Vector3 value2)
+            {
+            value1.x -= value2.x;
+            value1.y -= value2.y;
+            value1.z -= value2.z;
+            return value1;
             }
         }
     }
