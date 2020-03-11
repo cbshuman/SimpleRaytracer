@@ -41,9 +41,14 @@ namespace Raytracer.Model
                 for(int y = 0; y < screenHeight; y++)
                     {
                     Ray primeRay = CreatePrimeRay(x, y);
-                    screen[x][y] = primeRay.GetCast();
+                    screen[x][y] = primeRay.GetCast(this);
                     }
                 }
+            }
+
+        internal void AddObject(RenderObject renderObject)
+            {
+            objects.Add(renderObject);
             }
 
         private Ray CreatePrimeRay(float x, float y)

@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Raytracer.Model
     {
-    interface RenderObject
+    public abstract class RenderObject
         {
+        public abstract void CheckCollision(Ray inputRay);
         }
     }

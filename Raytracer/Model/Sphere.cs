@@ -19,5 +19,10 @@ namespace Raytracer.Model
             this.radius = radius;
             this.color = color;
             }
+
+        public override void CheckCollision(Ray inputRay)
+            {
+            throw new NotImplementedException();
+            }
         }
     }
