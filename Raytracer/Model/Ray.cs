@@ -28,15 +28,18 @@ namespace Raytracer.Model
         internal Color GetCast(Scene scene)
             {
             Color returnColor;
+            float distance = -1;
 
             //Get the closest collision
             for (int i = 0; i < scene.objects.Count; i++)
                 {
-                if(scene.objects[i].CheckCollision(this))
+                float newDistance;
+                if(scene.objects[i].CheckCollision(this, out newDistance))
                     {
-                    if (collision == null)
+                    if (collision == null || newDistance < distance)
                         {
                         collision = scene.objects[i];
+                        distance = newDistance;
                         }
                     }
 

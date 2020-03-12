@@ -20,25 +20,36 @@ namespace Raytracer.Model
             this.color = color;
             }
 
-        public override bool CheckCollision(Ray inputRay)
+        public override bool CheckCollision(Ray inputRay, out float distance)
             {
+            bool returnValue = true;
             Vector3 l = position - inputRay.origin;
-            float tca = Vector3.Dot(l,inputRay.direction);
+            float tca = Vector3.Dot(l, inputRay.direction);
             if (tca < 0)
                 {
-                return false;
+                returnValue = false;
                 }
 
-            float d2 = Vector3.Dot(l,l) - tca * tca;
-            if (d2 > radius*radius)
+            float d2 = Vector3.Dot(l, l) - tca * tca;
+            if (d2 > radius * radius)
                 {
-                return false;
+                returnValue = false;
                 }
-            float thc = MathF.Sqrt((radius * radius) - d2);
-            //t0 = tca - thc;
-            //t1 = tca + thc;
 
-            return true;
+            float thc = MathF.Sqrt((radius * radius) - d2);
+            float t0 = tca - thc;
+            float t1 = tca + thc;
+
+            if (t0 > t1)
+                {
+                distance = t0;
+                }
+            else
+                {
+                distance = t1;
+                }
+
+            return (returnValue);
             }
 
         public override Color GetColor(Ray ray)
