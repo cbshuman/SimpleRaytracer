@@ -11,6 +11,7 @@ namespace Raytracer.Model
         public int screenHeight;
         public int screenWidth;
         public Color backgroundColor;
+        public Color ambientLight;
         public Color[][] screen;
         public Vector3 cameraPosition;
 

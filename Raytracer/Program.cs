@@ -10,7 +10,7 @@ namespace Raytracer
             {
             Scene scene = new Scene(65f, 500, 1000, new Color(25, 25, 80));
 
-            scene.AddLamp(new DirectionalLamp(new Vector3(4, -5, 1), new Color(10, 10, 10), .025f));
+            scene.AddLamp(new DirectionalLamp(new Vector3(30, -5, -5), new Color(155, 155, 155), 3));
 
             scene.AddObject(new Sphere(new Vector3(-1f, 2.5f, -15), 2.5f, new Color(80, 200, 50)));
             scene.AddObject(new Sphere(new Vector3(1, 2, -10), 2.5f, new Color(255, 0, 0)));

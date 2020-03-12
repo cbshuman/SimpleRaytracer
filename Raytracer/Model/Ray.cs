@@ -25,6 +25,12 @@ namespace Raytracer.Model
             children.Add(input);
             }
 
+        public Vector3 GetPoint(float distance)
+            {
+            Vector3 point = new Vector3(origin.x + (direction.x * distance), origin.y + (direction.y * distance), origin.z + (direction.z * distance));
+            return (point);
+            }
+
         internal Color GetCast(Scene scene)
             {
             Color returnColor;

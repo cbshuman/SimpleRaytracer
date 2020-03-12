@@ -120,7 +120,7 @@ namespace Raytracer.Model
 
         public static Color operator *(Color value1, Color value2)
             {
-            return (new Color(value1.R * value2.R, value1.B * value2.B, value1.G * value2.G));
+            return (new Color((value1.R * value2.R)/255, (value1.B * value2.B)/255, (value1.G * value2.G) / 255));
             }
 
         public static Color operator +(Color value1, Color value2)
