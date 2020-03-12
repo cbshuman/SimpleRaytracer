@@ -101,9 +101,9 @@ namespace Raytracer.Model
 
         public Color(int R, int G, int B)
             {
-            this.R = R;
-            this.G = G;
-            this.B = B;
+            this.red = R;
+            this.green = G;
+            this.blue = B;
             }
 
         public Color(Color color)
@@ -115,7 +115,7 @@ namespace Raytracer.Model
 
         public static Color operator *(Color value1, float value2)
             {
-            return (new Color((int)(value1.R * value2), (int)(value1.B * value2), (int)(value1.G * value2)));
+            return (new Color((int)(value1.red * value2), (int)(value1.blue * value2), (int)(value1.green * value2)));
             }
 
         public static Color operator *(Color value1, Color value2)
@@ -126,6 +126,18 @@ namespace Raytracer.Model
         public static Color operator +(Color value1, Color value2)
             {
             return (new Color(value1.R + value2.R, value1.B + value2.B, value1.G + value2.G));
+            }
+
+        public static Color operator -(Color value1, Color value2)
+            {
+            return (new Color(value1.R - value2.R, value1.B - value2.B, value1.G - value2.G));
+            }
+
+        public void Clamp()
+            {
+            R = red;
+            B = blue;
+            G = green;
             }
 
         public override string ToString()
