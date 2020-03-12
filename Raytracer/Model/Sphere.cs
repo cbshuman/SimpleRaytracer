@@ -52,11 +52,26 @@ namespace Raytracer.Model
             return (returnValue);
             }
 
-        public override Color GetColor(Ray ray)
+        public override Color GetColor(Ray ray, float distance, Scene scene)
             {
-            Color returnValue = color;
+            Color returnValue = new Color(color);
+            Vector3 normal = GetNormalAtPoint(ray.origin + (ray.direction * distance));
 
+            //Apply directional lights
+            for (int i = 0; i < scene.lamps.Count; i++)
+                {
+                DirectionalLamp lamp = scene.lamps[i];
+                float lightPower = Vector3.Dot((-lamp.direction).GetNormalized(), normal) * lamp.intensity;
+                returnValue *= (lamp.color * (lightPower * (float)(reflective/Math.PI)));
+                }
+            //Console.WriteLine(normal);
+            //Console.WriteLine(returnValue);
             return (returnValue);
+            }
+
+        public override Vector3 GetNormalAtPoint(Vector3 hitPoint)
+            {
+            return ((hitPoint - position).GetNormalized());
             }
 
         public override void HandleCollision(Ray inputRay)

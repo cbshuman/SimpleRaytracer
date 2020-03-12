@@ -54,7 +54,7 @@ namespace Raytracer.Model
                 {
                 //Get the color from the tree
                 collision.HandleCollision(this);
-                returnColor = collision.GetColor(this);
+                returnColor = collision.GetColor(this,distance,scene);
                 }
 
             return (returnColor);

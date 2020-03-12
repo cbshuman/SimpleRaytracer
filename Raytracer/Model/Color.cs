@@ -21,7 +21,7 @@ namespace Raytracer.Model
                     {
                     red = 225;
                     }
-                else if(value < 0)
+                else if (value < 0)
                     {
                     red = 0;
                     }
@@ -41,7 +41,7 @@ namespace Raytracer.Model
                     {
                     green = 225;
                     }
-                else if(value< 0)
+                else if (value < 0)
                     {
                     green = 0;
                     }
@@ -105,6 +105,32 @@ namespace Raytracer.Model
             this.G = G;
             this.B = B;
             }
-        }
 
+        public Color(Color color)
+            {
+            R = color.R;
+            G = color.G;
+            B = color.B;
+            }
+
+        public static Color operator *(Color value1, float value2)
+            {
+            return (new Color((int)(value1.R * value2), (int)(value1.B * value2), (int)(value1.G * value2)));
+            }
+
+        public static Color operator *(Color value1, Color value2)
+            {
+            return (new Color(value1.R * value2.R, value1.B * value2.B, value1.G * value2.G));
+            }
+
+        public static Color operator +(Color value1, Color value2)
+            {
+            return (new Color(value1.R + value2.R, value1.B + value2.B, value1.G + value2.G));
+            }
+
+        public override string ToString()
+            {
+            return("R: '" + R + "' B: '" + B + "' G: '" + G + "'");
+            }
+        }
     }

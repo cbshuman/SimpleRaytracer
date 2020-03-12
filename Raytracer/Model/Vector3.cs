@@ -48,19 +48,35 @@ namespace Raytracer.Model
             {
             float factor = (float)Math.Sqrt((x * x) + (y * y) + (z * z));
             factor = 1f / factor;
-            float normalX = x*factor;
-            float normalY = y*factor;
-            float normalZ = z*factor;
+            float normalX = x * factor;
+            float normalY = y * factor;
+            float normalZ = z * factor;
 
             return (new Vector3(normalX, normalY, normalZ));
             }
 
-        public static Vector3 operator -(Vector3 value1, Vector3 value2)
+        public static Vector3 operator - (Vector3 value)
             {
-            value1.x -= value2.x;
-            value1.y -= value2.y;
-            value1.z -= value2.z;
-            return value1;
+            return new Vector3(-value.x, -value.y, -value.z);
+            }
+
+        public static Vector3 operator - (Vector3 value1, Vector3 value2)
+            {
+            return (new Vector3(value1.x - value2.x, value1.y - value2.y, value1.z - value2.z));
+            }
+
+        public static Vector3 operator +(Vector3 value1, Vector3 value2)
+            {
+            return (new Vector3(value1.x + value2.x, value1.y + value2.y, value1.z + value2.z));
+            }
+
+        public static Vector3 operator *(Vector3 value1, float value2)
+            {
+            return (new Vector3(value1.x * value2, value1.y * value2, value1.z * value2));
+            }
+        public override string ToString()
+            {
+            return ("X: " + x + "; Y: " + y + "; Z: " +z);
             }
         }
     }
