@@ -12,7 +12,7 @@ namespace Raytracer.Model
         public List<Ray> children;
 
         //What we've collided with
-        RenderObject collision = null;
+        public RenderObject collision = null;
 
         public Ray(Vector3 origin, Vector3 direction)
             {

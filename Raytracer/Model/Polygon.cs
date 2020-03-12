@@ -9,12 +9,6 @@ namespace Raytracer.Model
         public List<Vector3> verts;
         public float faces;
 
-
-        public override bool CheckCollision(Ray inputRay)
-            {
-            throw new NotImplementedException();
-            }
-
         public override bool CheckCollision(Ray inputRay, out float distance)
             {
             throw new NotImplementedException();

@@ -20,35 +20,23 @@ namespace Raytracer.Model
             //Apply directional lights
             for (int i = 0; i < scene.lamps.Count; i++)
                 {
-                bool inShadow = false;
                 float lightReflected = albedo / MathF.PI;
                 DirectionalLamp lamp = scene.lamps[i];
                 Vector3 directionToLamp = (-lamp.direction).GetNormalized();
 
-                //Check if we are in shadow
-                Ray shadowRay = new Ray(collisionPoint, directionToLamp);
-                for(i = 0; i < scene.objects.Count; i++)
+                float lightIntensity = lamp.intensity;
+
+                Ray shadowRay = new Ray(collisionPoint + (normal * (1/2000f)), directionToLamp);
+                for (int j = 0; j < scene.objects.Count; j++)
                     {
-                    if (scene.objects[i].CheckCollision(shadowRay))
+                    if(scene.objects[j].CheckCollision(shadowRay, out distance))
                         {
-                        inShadow = true;
+                        lightIntensity = 0;
                         break;
                         }
                     }
 
-                //hitColor = hitObject->albedo / M_PI * light->intensity * light->color * std::max(0.f, hitNormal.dotProduct(L));
-
-                float intensity;
-                if(inShadow)
-                    {
-                    intensity = 0;
-                    }
-                else
-                    {
-                    intensity = lamp.intensity;
-                    }
-
-                lightColor += lamp.color * lightReflected * intensity * MathF.Max(0, Vector3.Dot(directionToLamp, normal));
+                lightColor += lamp.color * lightReflected * lightIntensity * MathF.Max(0, Vector3.Dot(directionToLamp, normal));
                 }
 
             returnValue = returnValue * lightColor;
@@ -56,7 +44,6 @@ namespace Raytracer.Model
             return (returnValue);
             }
 
-        public abstract bool CheckCollision(Ray inputRay);
         public abstract bool CheckCollision(Ray inputRay, out float distance);
         public abstract void HandleCollision(Ray inputRay);
         public abstract Vector3 GetNormalAtPoint(Vector3 hitPoint);

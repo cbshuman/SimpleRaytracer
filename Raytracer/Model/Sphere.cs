@@ -19,28 +19,6 @@ namespace Raytracer.Model
             this.color = color;
             }
 
-
-        public override bool CheckCollision(Ray inputRay)
-            {
-            bool returnValue = true;
-            Vector3 l = position - inputRay.origin;
-            float tca = Vector3.Dot(l, inputRay.direction);
-            float radiusSquared = radius * radius;
-
-            if (tca < 0)
-                {
-                returnValue = false;
-                }
-
-            float d2 = Vector3.Dot(l, l) - (tca * tca);
-            if (d2 > radiusSquared)
-                {
-                returnValue = false;
-                }
-
-            return (returnValue);
-            }
-
         public override bool CheckCollision(Ray inputRay, out float distance)
             {
             bool returnValue = true;

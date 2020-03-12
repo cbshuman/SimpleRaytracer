@@ -16,12 +16,6 @@ namespace Raytracer.Model
             this.color = color;
             }
 
-        public override bool CheckCollision(Ray inputRay)
-            {
-            float dotNormal = Vector3.Dot(normal, inputRay.direction);
-            return (dotNormal >= 0);
-            }
-
         public override bool CheckCollision(Ray inputRay, out float distance)
             {
             float dotNormal = Vector3.Dot(normal, inputRay.direction);
