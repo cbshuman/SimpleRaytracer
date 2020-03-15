@@ -8,16 +8,17 @@ namespace Raytracer.Model
         {
         public Vector3 origin;
         public Vector3 direction;
-
         public List<Ray> children;
+        public float recusiveNumber;
 
         //What we've collided with
         public RenderObject collision = null;
 
-        public Ray(Vector3 origin, Vector3 direction)
+        public Ray(Vector3 origin, Vector3 direction, float recusiveNumber)
             {
             this.origin = origin;
             this.direction = direction.GetNormalized();
+            this.recusiveNumber = recusiveNumber;
             }
 
         public void AddChild(Ray input)

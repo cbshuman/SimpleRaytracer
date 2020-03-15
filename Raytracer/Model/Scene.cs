@@ -7,9 +7,10 @@ namespace Raytracer.Model
     public class Scene
         {
         //Camera information
-        public float fov;
         public int screenHeight;
         public int screenWidth;
+        public const int recursionNumber = 3;
+        public float fov;
         public Color backgroundColor;
         public Color ambientLight;
         public Color[][] screen;
@@ -68,7 +69,7 @@ namespace Raytracer.Model
             float xDir = (((x + .5f) / screenWidth * 2) - 1) * aspect_ratio;
             float yDir = 1 - ((y + .5f) / screenHeight * 2);
 
-            Ray primeRay = new Ray(cameraPosition, new Vector3(xDir, yDir, -1));
+            Ray primeRay = new Ray(cameraPosition, new Vector3(xDir, yDir, -1), recursionNumber);
 
             return (primeRay);
             }

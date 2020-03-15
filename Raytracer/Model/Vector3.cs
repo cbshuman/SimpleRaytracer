@@ -60,6 +60,11 @@ namespace Raytracer.Model
             return new Vector3(-value.x, -value.y, -value.z);
             }
 
+        public static Vector3 operator -(Vector3 value1, float value2)
+            {
+            return (new Vector3(value1.x - value2, value1.y - value2, value1.z - value2));
+            }
+
         public static Vector3 operator - (Vector3 value1, Vector3 value2)
             {
             return (new Vector3(value1.x - value2.x, value1.y - value2.y, value1.z - value2.z));
@@ -74,6 +79,7 @@ namespace Raytracer.Model
             {
             return (new Vector3(value1.x * value2, value1.y * value2, value1.z * value2));
             }
+
         public override string ToString()
             {
             return ("X: " + x + "; Y: " + y + "; Z: " +z);
