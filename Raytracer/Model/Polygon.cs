@@ -9,6 +9,12 @@ namespace Raytracer.Model
         public List<Vector3> verts;
         public float faces;
 
+        public Polygon(List<Vector3> verts, float faces, Material material) : base(material)
+            {
+            this.verts = verts;
+            this.faces = faces;
+            }
+
         public override bool CheckCollision(Ray inputRay, out float distance)
             {
             throw new NotImplementedException();

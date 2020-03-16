@@ -6,16 +6,21 @@ namespace Raytracer.Model
     {
     public class Scene
         {
+        public const int recursionNumber = 3;
         //Camera information
         public int screenHeight;
         public int screenWidth;
-        public const int recursionNumber = 3;
         public float fov;
+
+        //Background colors
         public Color backgroundColor;
         public Color ambientLight;
         public Color[][] screen;
+
+        //Camera position
         public Vector3 cameraPosition;
 
+        //Objects/Lamps
         public List<RenderObject> objects;
         public List<DirectionalLamp> lamps;
 

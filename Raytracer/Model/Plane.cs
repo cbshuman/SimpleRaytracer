@@ -9,11 +9,10 @@ namespace Raytracer.Model
         public Vector3 position;
         public Vector3 normal;
 
-        public Plane(Vector3 position, Vector3 normal, Color color)
+        public Plane(Vector3 position, Vector3 normal, Material material) : base(material)
             {
             this.position = position;
             this.normal = normal.GetNormalized();
-            this.color = color;
             }
 
         public override bool CheckCollision(Ray inputRay, out float distance)

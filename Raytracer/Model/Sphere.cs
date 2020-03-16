@@ -12,11 +12,10 @@ namespace Raytracer.Model
         public Vector3 position;
         public float radius;
 
-        public Sphere(Vector3 position, float radius, Color color)
+        public Sphere(Vector3 position, float radius, Material material) : base(material)
             {
             this.position = position;
             this.radius = radius;
-            this.color = color;
             }
 
         public override bool CheckCollision(Ray inputRay, out float distance)

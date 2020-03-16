@@ -115,22 +115,22 @@ namespace Raytracer.Model
 
         public static Color operator *(Color value1, float value2)
             {
-            return (new Color((int)(value1.red * value2), (int)(value1.blue * value2), (int)(value1.green * value2)));
+            return (new Color((int)(value1.red * value2), (int)(value1.green * value2), (int)(value1.blue * value2)));
             }
 
         public static Color operator *(Color value1, Color value2)
             {
-            return (new Color((value1.R * value2.R)/255, (value1.B * value2.B)/255, (value1.G * value2.G) / 255));
+            return (new Color((value1.R * value2.R)/255, (value1.G * value2.G) / 255, (value1.B * value2.B) / 255));
             }
 
         public static Color operator +(Color value1, Color value2)
             {
-            return (new Color(value1.R + value2.R, value1.B + value2.B, value1.G + value2.G));
+            return (new Color(value1.R + value2.R, value1.G + value2.G, value1.B + value2.B));
             }
 
         public static Color operator -(Color value1, Color value2)
             {
-            return (new Color(value1.R - value2.R, value1.B - value2.B, value1.G - value2.G));
+            return (new Color(value1.R - value2.R, value1.G - value2.G, value1.B - value2.B));
             }
 
         public void Clamp()
