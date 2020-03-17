@@ -20,12 +20,16 @@ namespace Raytracer
             scene.AddObject(new Plane(new Vector3(0,-3,0), new Vector3(0,-1,0), new Material(32f, 0f,bias,new Color(155, 155, 155))));
             //Spheres
             scene.AddObject(new Sphere(new Vector3(5, 2.25f, -8),    4.5f, new Material(32f, .75f, bias, new Color(255, 10, 10))));    // Red
+
             scene.AddObject(new Sphere(new Vector3(-10f, 2.5f, -15),   6f, new Material(32f, .25f, bias, new Color(80, 200, 50)))); // blue
+
             scene.AddObject(new Sphere(new Vector3(0, 2, -15),       4.5f, new Material(32f,  .1f,  bias, new Color(100, 100, 200))));   // green
-            scene.AddObject(new Sphere(new Vector3(-5, 1, -8),        .5f, new Material(32f,    0,  bias, new Color(10, 200, 200))));     // Cyan
 
-            scene.AddObject(new Sphere(new Vector3(2, .15f, -2), .5f, new Material(32f, 1, bias, new Color(255, 255, 255))));     // Cyan
+            scene.AddObject(new Sphere(new Vector3(-8, 2, -8),        .5f, new Material(32f,    0,  bias, new Color(10, 200, 200))));     // Cyan
 
+            scene.AddObject(new Sphere(new Vector3(2, .15f, -2), .5f, new Material(32f, 1, bias, new Color(255, 255, 255))));     // clear
+
+            scene.AddObject(new TriFace(new Vector3(5f, -3f, -5f), new Vector3(-5f, 0f, -5f), new Vector3(-0f, 10f, -30f), new Material(32f, .001f, bias, new Color(255, 255, 255))));
 
             //Draw the image
             scene.Render();

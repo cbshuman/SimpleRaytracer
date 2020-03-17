@@ -9,6 +9,11 @@ namespace Raytracer.Model
         public Vector3 position;
         public Vector3 normal;
 
+        protected Plane(Material material) : base(material)
+            {
+
+            }
+
         public Plane(Vector3 position, Vector3 normal, Material material) : base(material)
             {
             this.position = position;
