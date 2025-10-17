@@ -6,4 +6,5 @@ Currently it supports planes, spheres, directional lights, and shadows. Plan is 
 
 
 Example of what this can do:
+<br>
 ![alt text](https://raw.githubusercontent.com/cbshuman/SimpleRaytracer/refs/heads/master/Raytracer/raytraced.png)
